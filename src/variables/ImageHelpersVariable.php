@@ -43,7 +43,7 @@ class ImageHelpersVariable
         return $service->getPicture($image, $sources, $attributes);
     }
 
-    public function pictureMedia($image, $transforms, $common_setings, $attributes = null){
+    public function pictureMedia($image, $transforms, $common_setings = null, $attributes = null){
         $sources = [];
         foreach ($transforms as $media => $transform) {
             $sources[] = Array(
@@ -55,7 +55,7 @@ class ImageHelpersVariable
         return $service->getPicture($image, $sources, $attributes);
     }
 
-    public function pictureMax($image, $transforms, $common_setings, $attributes = null){
+    public function pictureMax($image, $transforms, $common_setings = null, $attributes = null){
         ksort($transforms);
         $sources = [];
         foreach ($transforms as $media => $transform) {
@@ -68,7 +68,7 @@ class ImageHelpersVariable
         return $service->getPicture($image, $sources, $attributes);
     }
 
-    public function pictureMin($image, $transforms, $common_setings, $attributes = null){
+    public function pictureMin($image, $transforms, $common_setings = null, $attributes = null){
         krsort($transforms);
         $sources = [];
         foreach ($transforms as $media => $transform) {
