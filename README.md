@@ -5,7 +5,7 @@ THIS PLUGIN IS IN BETA AND SHOULD NOT BE USED IN PRODUCTION
 ## Installation
 
 ```
-composer require craftsnippets/image-helpers
+composer require craftsnippets/craft-image-helpers
 ```
 
 ## Usage
