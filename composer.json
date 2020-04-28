@@ -1,0 +1,43 @@
+{
+    "name": "craftsnippets/image-helpers",
+    "description": "Image helpers",
+    "type": "craft-plugin",
+    "version": "1.0.0",
+    "keywords": [
+        "craft",
+        "cms",
+        "craftcms",
+        "craft-plugin",
+        "image helpers"
+    ],
+    "support": {
+        "docs": "???",
+        "issues": "???"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Piotr Pogorzelski",
+            "homepage": "http://craftsnippets.com"
+        }
+    ],
+    "require": {
+        "craftcms/cms": "^3.0.0-RC1"
+    },
+    "autoload": {
+        "psr-4": {
+          "craftsnippets\\imagehelpers\\": "src/"
+        }
+    },
+    "extra": {
+        "name": "Image helpers",
+        "handle": "image-helpers",
+        "hasCpSettings": false,
+        "hasCpSection": false,
+        "changelogUrl": "???",
+        "components": {
+            "imageHelpersService": "craftsnippets\\imagehelpers\\services\\ImageHelpersService"
+        },
+        "class": "craftsnippets\\imagehelpers\\ImageHelpers"
+    }
+}
