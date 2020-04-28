@@ -11,8 +11,8 @@
         "image helpers"
     ],
     "support": {
-        "docs": "???",
-        "issues": "???"
+        "docs": "https://github.com/craft-snippets/Craft-image-helpers/blob/master/README.md",
+        "issues": "https://github.com/craft-snippets/Craft-image-helpers/issues"
     },
     "license": "MIT",
     "authors": [
