@@ -18,7 +18,7 @@ If [imager](https://plugins.craftcms.com/imager) or [imager-x](https://plugins.c
 
 First parameter of function should contain image object (not query object - so for asset field of entry, it would be `entry.assetField.one()` instead of `entry.assetField`).
 
-Second parameter is array containing image transform settings. These settings can be identical to one used by native Craft image transforms. Transform settings are actually optional - you can use `picture()` function without providing them. This would make sense if you just wanted to make use of placeholder creation or webp version functionality, which are described below.
+Second parameter is array containing image transform settings. These settings can be identical to one used by native Craft image transforms. Transform settings are actually optional - you can use `picture()` function without providing them. This would make sense if you just wanted to make use of webp creation functionality, which is described below.
 
 Third, optional parameter of function can contain array of HTML attributes that will be set on `<img>` element within `<picture>`. These settings need to be in same format as accepted by [tag()](https://docs.craftcms.com/v3/dev/functions.html#tag) or [attr()](https://docs.craftcms.com/v3/dev/functions.html#attr) Twig function. More info about these functions can be found in [this article](http://craftsnippets.com/articles/using-attr-function-to-render-html-attributes-in-craft-cms).
 
