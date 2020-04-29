@@ -32,4 +32,5 @@ class Settings extends Model
     public $useImager = true;
     public $usePlaceholders = true;
     public $placeholderClass = 'is-placeholder';
+    public $useImagerForSvg = false;
 }

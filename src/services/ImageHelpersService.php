@@ -53,8 +53,12 @@ class ImageHelpersService extends Component
     }
 
     private function canTransformImager($image){
-        $extension = mb_strtolower(Craft::$app->getConfig()->getGeneral()->imageDriver);
-        if(($extension === 'gd' || Craft::$app->images->getIsGd()) && $image->getMimeType() == 'image/svg+xml'){
+        $settings = ImageHelpers::$plugin->getSettings(); 
+        // imager has problems with svg
+        if($image->getMimeType() == 'image/svg+xml' && $settings->useImagerForSvg == false){
+            return false;
+        }
+        if($settings->useImager == false){
             return false;
         }
         return true;
@@ -76,9 +80,9 @@ class ImageHelpersService extends Component
         // choose transform method
         $settings = ImageHelpers::$plugin->getSettings(); 
         if(!empty($transformSettings)){
-            if(Craft::$app->getPlugins()->isPluginEnabled('imager') && $settings->useImager && $this->canTransformImager($image)){
+            if(Craft::$app->getPlugins()->isPluginEnabled('imager') && $this->canTransformImager($image)){
                 $url = \aelvan\imager\Imager::$plugin->imager->transformImage($image, $transformSettings, [], $imager_settings);
-            }elseif(Craft::$app->getPlugins()->isPluginEnabled('imagerx') && $settings->useImager && $this->canTransformImager($image)){
+            }elseif(Craft::$app->getPlugins()->isPluginEnabled('imagerx') && $this->canTransformImager($image)){
                 $url = \spacecatninja\imagerx\Imagerx::$plugin->imagerx->transformImage($image, $transformSettings, [], $imager_settings);
             }else{
                 $url = $image->getUrl($transformSettings);

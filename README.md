@@ -14,7 +14,7 @@ composer require craftsnippets/craft-image-helpers
 
 This function generates `<picture>` HTML element from image asset object. 
 
-If [imager](https://plugins.craftcms.com/imager) or [imager-x](https://plugins.craftcms.com/imager-x) is installed, plugin by default will use either of them for image transforms. Otherwise, native Craft image transforms will be used.
+If [imager](https://plugins.craftcms.com/imager) or [imager-x](https://plugins.craftcms.com/imager-x) is installed, plugin by default will use either of them for image transforms. Otherwise, native Craft image transforms will be used. For SVG images, native craft transforms will be used instead of Imager, unless you decide otherwise in settings. This is because Imager can cause [problems if used with SVG](https://github.com/aelvan/Imager-Craft/issues/136).
 
 First parameter of function should contain image object (not query object - so for asset field of entry, it would be `entry.assetField.one()` instead of `entry.assetField`).
 
@@ -36,7 +36,6 @@ Additional webp version of image will be automatically created as one of picture
 `<source>` containing webp version will have `type` attribute set to `image/webp`, so browsers that do not support webp will be able to use `<source>` with other format. That would be one that was set in transform settings, or format was not specified - source containing image in original format.
 
 If you use imager-x (or imager), you might set additional `filenamePattern ` parameter in transform settings. This will allow you to set transfrom filename pattern. More info in [imager-x docs](https://imager-x.spacecat.ninja/configuration.html#filenamepattern-bool).
-
 
 ### craft.imageHelpers.pictureMedia(image, transforms, commonSettings, htmlAttributes)
 
@@ -155,4 +154,5 @@ Place these settings in `config/image.helpers.php`:
 * `useImager` - if imager or imager-x should be used for transforms (assuming one of these plugins is installed). Default: `true`.
 * `usePlaceholders` - if placeholder should be generated if image is missing (image object equals `null`). Default: `true`.
 * `placeholderClass` - css class added to `<picture>` element if placeholder image is displayed. Default: `is-placeholder`.
+* `useImagerForSvg` - if imager should be used also for SVG images. Default: `false`.
 
