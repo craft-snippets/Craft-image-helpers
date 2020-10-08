@@ -82,7 +82,7 @@ class ImageHelpersService extends Component
         if(!empty($transformSettings)){
             if(Craft::$app->getPlugins()->isPluginEnabled('imager') && $this->canTransformImager($image)){
                 $url = \aelvan\imager\Imager::$plugin->imager->transformImage($image, $transformSettings, [], $imager_settings);
-            }elseif(Craft::$app->getPlugins()->isPluginEnabled('imagerx') && $this->canTransformImager($image)){
+            }elseif(Craft::$app->getPlugins()->isPluginEnabled('imager-x') && $this->canTransformImager($image)){
                 $url = \spacecatninja\imagerx\Imagerx::$plugin->imagerx->transformImage($image, $transformSettings, [], $imager_settings);
             }else{
                 $url = $image->getUrl($transformSettings);
